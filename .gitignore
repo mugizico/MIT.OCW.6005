@@ -1,0 +1,18 @@
+
+build.xml
+*.class
+*.netbeans*
+*.mf
+*.xml
+*.properties
+*.DS
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.txt
+
+# Directories #
+Z_Course Files - fall 2011/
+old*
