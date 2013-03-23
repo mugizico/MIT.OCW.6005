@@ -24,8 +24,11 @@ public class RulesOf6005 {
 	 * Example: "Lectures" and "lectures" will both return true.
 	 */
 	public static boolean hasFeature(String name){
-		// TODO: Fill in this method, then remove the RuntimeException
-        throw new RuntimeException("hasFeature not implemented");
+            
+            if (name.equalsIgnoreCase("Quizzes") || name.equalsIgnoreCase("code review")){
+                return true;
+            }else
+                return false;
 	}
 	
 	
@@ -43,8 +46,12 @@ public class RulesOf6005 {
 	 * @return the resulting grade out of a hundred
 	 */
 	public static int computeGrade(int quiz, int pset, int project, int participation){
-		// TODO: Fill in this method, then remove the RuntimeException
-        throw new RuntimeException("computeGrade not implemented");
+            double grade ;
+        
+            grade = (0.2 * quiz )  + (0.4 * pset) + (0.3 * project) + (0.1  * participation);
+            
+            return  (int) (grade+ 0.5); 
+
 	}
 	
 	
