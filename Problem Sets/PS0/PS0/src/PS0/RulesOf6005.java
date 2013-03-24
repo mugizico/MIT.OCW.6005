@@ -2,6 +2,7 @@ package PS0;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * RulesOf6005 represents some of the rules of 6.005 as described by the 
@@ -14,7 +15,6 @@ import java.util.GregorianCalendar;
  * The extension policy (slack days) are described by the extendDeadline function.
  */
 public class RulesOf6005 {
-	
 	
 	/**
 	 * Tests if the string is one of the items in the Course Elements section. 
@@ -47,11 +47,8 @@ public class RulesOf6005 {
 	 */
 	public static int computeGrade(int quiz, int pset, int project, int participation){
             double grade ;
-        
             grade = (0.2 * quiz )  + (0.4 * pset) + (0.3 * project) + (0.1  * participation);
-            
             return  (int) (grade+ 0.5); 
-
 	}
 	
 	
@@ -70,8 +67,18 @@ public class RulesOf6005 {
 	 * @return a new instance of a Calendar with the date and time set to when the assignment will be due
 	 */
 	public static Calendar extendDeadline(int request, int budget, Calendar duedate){
-		// TODO: Fill in this method, then remove the RuntimeException
-        throw new RuntimeException("extendDeadline not implemented");
+            int var;
+            
+           // check the budget and see how many slack days you have
+            if (request <= budget) {
+                var = budget - request;
+            } else{
+                var = budget;
+            } 
+            
+            duedate.add(Calendar.DAY_OF_MONTH, var);
+            return duedate;            
+ 
 	}
 	
 	
