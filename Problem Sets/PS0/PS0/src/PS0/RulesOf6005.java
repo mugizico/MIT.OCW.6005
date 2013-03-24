@@ -67,16 +67,19 @@ public class RulesOf6005 {
 	 * @return a new instance of a Calendar with the date and time set to when the assignment will be due
 	 */
 	public static Calendar extendDeadline(int request, int budget, Calendar duedate){
-            int var;
+            int slack;
             
            // check the budget and see how many slack days you have
-            if (request <= budget) {
-                var = budget - request;
-            } else{
-                var = budget;
-            } 
+            if (request < budget) {
+                slack = budget - request;
+                if (request >= 3 ){
+                    slack = 3;                    
+                }
+            } else {
+                slack = budget;
+            }
             
-            duedate.add(Calendar.DAY_OF_MONTH, var);
+            duedate.add(Calendar.DAY_OF_MONTH, slack);
             return duedate;            
  
 	}
