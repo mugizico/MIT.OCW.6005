@@ -12,6 +12,7 @@ build.xml
 *.war
 *.ear
 *.txt
+*.abc
 
 # Directories #
 Z_Course Files - fall 2011/
