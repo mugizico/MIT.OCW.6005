@@ -20,15 +20,24 @@ public class PiGenerator {
      * Computes a^b mod m
      * 
      * If a < 0, b < 0, or m < 0, return -1.
-     * 
+   * 
      * @param a
      * @param b
      * @param m
      * @return a^b mod m
      */
     public static int powerMod(int a, int b, int m) {
-        // TODO: Implement (Problem 1.b)
-        return -1;
+        int value = 0;
+        if (a < 0 || b < 0 || m <0){
+            value =  -1;
+        } else if (m == 0 ) {
+            throw new RuntimeException("divide by zero");
+        } else {
+            value = (int)Math.pow((int) a, (int)b) % m;            
+        }
+        
+        
+        return value;
     }
     
     /**
