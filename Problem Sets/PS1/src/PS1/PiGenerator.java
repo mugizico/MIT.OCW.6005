@@ -35,8 +35,6 @@ public class PiGenerator {
         } else {
             value = (int)Math.pow((int) a, (int)b) % m;            
         }
-        
-        
         return value;
     }
     
