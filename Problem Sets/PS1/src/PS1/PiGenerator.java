@@ -1,39 +1,36 @@
 package PS1;
 
 public class PiGenerator {
-    /**
+
+   /**
      * Returns precision hexadecimal digits of the fractional part of pi.
      * Returns digits in most significant to least significant order.
-     * 
+     *
      * If precision < 0, return null.
-     * 
+     *
      * @param precision The number of digits after the decimal place to
-     *                  retrieve.
+     * retrieve.
      * @return precision digits of pi in hexadecimal.
      */
     public static int[] computePiInHex(int precision) {
-        
-        if (precision < 0){
+
+        if (precision < 0) {
             return null;
-        }else {
+        } else {
             int[] value = new int[precision];
-            
-         // needs some sort of looping structure
-         for (int i = 0; i < precision; i++){
-             value[i] = piDigit(i);
-         }
-            
+
+            for (int i = 0; i < precision; i++) {
+                value[i] = piDigit(i);
+            }
             return value;
         }
-
-        
     }
 
     /**
      * Computes a^b mod m
-     * 
+     *
      * If a < 0, b < 0, or m < 0, return -1.
-   * 
+     *
      * @param a
      * @param b
      * @param m
@@ -41,51 +38,53 @@ public class PiGenerator {
      */
     public static int powerMod(int a, int b, int m) {
         int value = 0;
-        if (a < 0 || b < 0 || m <0){
-            value =  -1;
-        } else if (m == 0 ) {
+        if (a < 0 || b < 0 || m < 0) {
+            value = -1;
+        } else if (m == 0) {
             throw new RuntimeException("divide by zero");
         } else {
-            value = (int)Math.pow((int) a, (int)b) % m;            
+            value = (int) Math.pow((int) a, (int) b) % m;
         }
         return value;
     }
-    
+
     /**
      * Computes the nth digit of Pi in base-16.
-     * 
+     *
      * If n < 0, return -1.
-     * 
+     *
      * @param n The digit of Pi to retrieve in base-16.
      * @return The nth digit of Pi in base-16.
      */
     public static int piDigit(int n) {
-        if (n < 0) return -1;
-        
+        if (n < 0) {
+            return -1;
+        }
+
         n -= 1;
-        double x = 4 * piTerm(1, n) - 2 * piTerm(4, n) -
-                   piTerm(5, n) - piTerm(6, n);
+        double x = 4 * piTerm(1, n) - 2 * piTerm(4, n)
+                - piTerm(5, n) - piTerm(6, n);
         x = x - Math.floor(x);
-        
-        return (int)(x * 16);
+
+        return (int) (x * 16);
     }
-    
+
     private static double piTerm(int j, int n) {
         // Calculate the left sum
         double s = 0;
         for (int k = 0; k <= n; ++k) {
             int r = 8 * k + j;
-            s += powerMod(16, n-k, r) / (double) r;
+            s += powerMod(16, n - k, r) / (double) r;
             s = s - Math.floor(s);
         }
-        
+
         // Calculate the right sum
         double t = 0;
-        int k = n+1;
+        int k = n + 1;
         // Keep iterating until t converges (stops changing)
         while (true) {
             int r = 8 * k + j;
-            double newt = t + Math.pow(16, n-k) / r;
+            double newt = t + Math.pow(16, n - k) / r;
             if (t == newt) {
                 break;
             } else {
@@ -93,7 +92,7 @@ public class PiGenerator {
             }
             ++k;
         }
-        
-        return s+t;
+
+        return s + t;
     }
 }
