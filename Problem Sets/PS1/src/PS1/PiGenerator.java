@@ -12,8 +12,15 @@ public class PiGenerator {
      * @return precision digits of pi in hexadecimal.
      */
     public static int[] computePiInHex(int precision) {
-        // TODO: Implement (Problem 1.d)
-        return new int[0];
+        int value[];
+        
+        if (precision < 0){
+            return null;
+        }else {
+            return new int[0];
+        }
+            
+        
     }
 
     /**
