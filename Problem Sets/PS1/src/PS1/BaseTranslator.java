@@ -33,14 +33,31 @@ public class BaseTranslator {
      */
     public static int[] convertBase(int[] digits, int baseA,
                                     int baseB, int precisionB) {
+
+
+        int[] output = new int[precisionB];
+                
+        // Input checking:        
+        if (baseA < 2 || baseB <2 || precisionB <1 ){
+            return null;
+        } else { 
+        
+        
         for (int i=0; i < precisionB; i++){
             int carry  = 0 ;
+            
+            // right to left... hmm
+            
+            
+            // check for bad results or bad bases
+            
+            
             
         }
         
         
-        
-        // TODO: Implement (Problem 2.b)
-        return null;
+        return output;
+        }
+
     }
 }

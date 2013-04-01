@@ -32,8 +32,9 @@ public class BaseTranslatorTest {
         // If digits[i] < 0 or digits[i] >= baseA for any i, return null
         assertNull(BaseTranslator.convertBase(badDigits, 2, 10, 5));
         
-        // digits greater then base
+        // digits >= base
         assertNull(BaseTranslator.convertBase(badBase, 2, 2, 2));
+        assertNull(BaseTranslator.convertBase(badBase, 5, 2, 5));
     }
     
     
