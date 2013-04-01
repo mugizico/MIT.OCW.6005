@@ -17,6 +17,10 @@ public class BaseTranslatorTest {
                 BaseTranslator.convertBase(input, 2, 10, 2));
     }
 
+    
+    
+    
+    
     @Test
     public void improperInputTests() {
     // convertBase(int[] digits, int baseA, int baseB, int precisionB)

@@ -16,7 +16,7 @@ public class BaseTranslator {
      * for (i < precisionB) {
      *   1. Keep a carry, initialize to 0.
      *   2. From RIGHT to LEFT
-     *   	a. x = multiply the ith digit by baseB and add the carry
+     *      a. x = multiply the ith digit by baseB and add the carry
      *      b. the new ith digit is x % baseA
      *      c. carry = x / baseA
      *   3. output[i] = carry
@@ -34,26 +34,26 @@ public class BaseTranslator {
     public static int[] convertBase(int[] digits, int baseA,
                                     int baseB, int precisionB) {
 
-
         int[] output = new int[precisionB];
                 
         // Input checking:        
         if (baseA < 2 || baseB <2 || precisionB <1 ){
             return null;
         } else { 
-        
-        
-        for (int i=0; i < precisionB; i++){
-            int carry  = 0 ;
             
-            // right to left... hmm
-            
+            for (int i=0; i < precisionB; i++){
+                int carry  = 0 ;
+                int x = 0;
+                
+                x = (digits[i] * baseB + carry) % baseA; 
+                carry = x / baseA;
+                output[i] = carry;      
             
             // check for bad results or bad bases
             
             
             
-        }
+             }
         
         
         return output;
