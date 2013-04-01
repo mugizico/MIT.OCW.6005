@@ -33,6 +33,13 @@ public class BaseTranslator {
      */
     public static int[] convertBase(int[] digits, int baseA,
                                     int baseB, int precisionB) {
+        for (int i=0; i < precisionB; i++){
+            int carry  = 0 ;
+            
+        }
+        
+        
+        
         // TODO: Implement (Problem 2.b)
         return null;
     }
