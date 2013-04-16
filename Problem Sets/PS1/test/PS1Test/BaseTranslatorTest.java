@@ -19,8 +19,6 @@ public class BaseTranslatorTest {
 
     
     
-    
-    
     @Test
     public void improperInputTests() {
     // convertBase(int[] digits, int baseA, int baseB, int precisionB)

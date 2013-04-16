@@ -35,29 +35,32 @@ public class BaseTranslator {
                                     int baseB, int precisionB) {
 
         int[] output = new int[precisionB];
-                
+        int carry  = 0 ;
+        int x = 0;
+        int j;
+        
         // Input checking:        
         if (baseA < 2 || baseB <2 || precisionB <1 ){
             return null;
         } else { 
             
-            for (int i=0; i < precisionB; i++){
-                int carry  = 0 ;
-                int x = 0;
-                
-                x = (digits[i] * baseB + carry) % baseA; 
-                carry = x / baseA;
-                output[i] = carry;      
-            
+         for (int i = 1; i <= precisionB; i++) {
+        carry = 0;
+        for (int k = 0; k < digits.length; k++) {
+            j = digits.length - 1 - k;
+     
             // check for bad results or bad bases
-            
-            
-            
-             }
-        
-        
-        return output;
+            if (digits[j] >= baseA | digits[j] < 0) {
+                return null;
+            }
+            x = (digits[j] * baseB) + carry;
+            digits[j] = x % baseA;
+            carry = x / baseA;
         }
+        output[i-1] = carry;
+    }
+    return output;
+    }
 
     }
 }
