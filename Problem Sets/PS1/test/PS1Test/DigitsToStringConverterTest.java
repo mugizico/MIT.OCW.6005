@@ -20,5 +20,36 @@ public class DigitsToStringConverterTest {
                              input, 4, alphabet));
     }
 
+    
+    
+     /* If digits[i] >= base or digits[i] < 0 for any i, consider the input
+     * invalid, and return null.
+     
+     * If alphabet.length != base, consider the input invalid, and return null.
+     */
+    
+//    public static String convertDigitsToString(int[] digits, int base, char[] alphabet) {
+    
+    
+    @Test
+    public void badInputTest(){
+        int[] input = {};
+        char[] alphabet = {};
+        String expected = "dcba";
+        
+        assertNull(DigitsToStringConverter.convertDigitsToString(input, 4, alphabet));
+        
+        
+        
+    }
+     
+     
+     
+    
+    
+    
+    
+    
+    
     // TODO: Write more tests (Problem 3.a)
 }
