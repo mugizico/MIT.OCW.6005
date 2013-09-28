@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class DigitsToStringConverterTest {
+   
     @Test
     public void basicNumberSerializerTest() {
         // Input is a 4 digit number, 0.123 represented in base 4
@@ -22,8 +23,9 @@ public class DigitsToStringConverterTest {
 
        
     @Test
-    public void badInputTest(){
+    public void badInputTest() {
         int[] input = {0,1,2};
+        int[] neg_input = {0,1,-13,3};
         char[] alphabet = {'d','c','b','a'};
         String expected = "dcba";
             
@@ -35,8 +37,10 @@ public class DigitsToStringConverterTest {
         
         // alphabet.lenght != base  (Alphabet.length = 4)   
         assertNull(DigitsToStringConverter.convertDigitsToString(input, 5, alphabet));
+        
+        // digits[i] < 0
+         assertNull(DigitsToStringConverter.convertDigitsToString(neg_input, 4, alphabet));
     }
-     
      
      
     @Test
@@ -50,12 +54,6 @@ public class DigitsToStringConverterTest {
 
         assertEquals(expectedOutput,
                      DigitsToStringConverter.convertDigitsToString(
-                             input, 4, alphabet));
-    }
-    
-    
-    
-    
-    
- 
+                             input, 26, alphabet));
+    } 
 }
