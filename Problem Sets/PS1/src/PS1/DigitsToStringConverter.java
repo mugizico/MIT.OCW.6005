@@ -24,11 +24,16 @@ public class DigitsToStringConverter {
            return null;
        }else {
            for (int i = 0; i < base; i++){
-               
+             if (digits[i]<0){
+               return null;
+             }
+             else{
+               output = output + alphabet[i];
+             }
            }
-           
-           
+             
+       return output;           
        }
-       return output;
+
     }
 }
