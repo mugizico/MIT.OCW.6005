@@ -23,5 +23,21 @@ public class WordFinderTest {
                                                               needles));
     }
 
-    // TODO: Write more tests (Problem 4.a)
+     @Test
+     public void multiMapTest() {
+        String haystack = "abcabc";
+        String[] needles = {"ab", "abc", "b", "cab", "de"};
+
+        Map<String, Integer> expectedOutput = new HashMap<String, Integer>();
+        expectedOutput.put("ab", 0);
+        expectedOutput.put("abc", 0);
+        expectedOutput.put("b", 1);
+        expectedOutput.put("cab", 2);
+
+        assertEquals(expectedOutput, WordFinder.getSubstrings(haystack,
+                                                              needles));
+    }
+
+    
+    
 }
