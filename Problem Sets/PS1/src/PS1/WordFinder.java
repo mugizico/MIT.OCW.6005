@@ -28,7 +28,6 @@ public class WordFinder {
            }
        }
         
-        
         return wordList;
     }
 }

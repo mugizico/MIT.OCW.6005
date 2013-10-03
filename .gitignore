@@ -17,3 +17,6 @@ build.xml
 # Directories #
 Z_Course Files - fall 2011/
 old*
+/Problem Sets/PS1/PS1/nbproject/private/
+/Problem Sets/PS/nbproject/private/
+/Problem Sets/JavaProject/nbproject/private/

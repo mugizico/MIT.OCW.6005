@@ -52,7 +52,9 @@ public class AlphabetGenerator {
      */
     public static char[] generateFrequencyAlphabet(int base,
                                                    String[] trainingData) {
-        // TODO: Implement (Problem 5.b)
-        return null;
+        char[] generatedAlphabet = null;
+        
+        
+        return generatedAlphabet;
     }
 }
