@@ -56,6 +56,7 @@ public class AlphabetGenerator {
         char[] generatedAlphabet = null;
         int totalCount = 0;
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
+        Double[] CDF = null;
         
         if (base < 0 ){
             return null;
@@ -69,19 +70,22 @@ public class AlphabetGenerator {
                 
                 for (char letter : letters) {
                   totalCount = totalCount +1;
-                  System.out.println(letter + "," + totalCount);
+                  //System.out.println(letter + "," + totalCount);
          
                   Integer freqB = count.get(letter);
                   count.put(letter, (freqB == null) ? 1 : freqB +1);
-                  
-                  
                 }
-               System.out.println(count.size() + " distinct letters");
-               System.out.println(count);
-                
+               
 
         
             }
+  
+            System.out.println(count.size() + " distinct letters");
+            
+            System.out.println(count.values());
+            CDF = new Double[count.size()]; 
+            CDF = count.values().toArray();
+            
             
         }
         
