@@ -34,7 +34,7 @@ public class BaseTranslator {
     public static int[] convertBase(int[] digits, int baseA,
                                     int baseB, int precisionB) {
 
-        int[] output = new int[precisionB];
+        int[] convertedBaseOutput = new int[precisionB];
         int carry  = 0 ;
         int x = 0;
         int j;
@@ -57,9 +57,9 @@ public class BaseTranslator {
             digits[j] = x % baseA;
             carry = x / baseA;
         }
-        output[i-1] = carry;
+        convertedBaseOutput[i-1] = carry;
     }
-    return output;
+    return convertedBaseOutput;
     }
 
     }

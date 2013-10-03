@@ -17,10 +17,10 @@ public class AlphabetGenerator {
      *   4. Multiply the CDF value of each character by the base we are
      *      converting into.
      *   5. For each index 0 <= i < base,
-     *      output[i] = (the first character whose CDF * base is > i)
+   *      output[i] = (the first character whose CDF * base is > i)
      * 
      * A concrete example:
-     * 	 0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500 "b"s),
+     *   0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500 "b"s),
      *               "ccccc..." (198 "c"s)}, base = 93
      *   1. Count(a) = 302, Count(b) = 500, Count(c) = 193
      *   2. Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 = .5,
@@ -53,6 +53,31 @@ public class AlphabetGenerator {
     public static char[] generateFrequencyAlphabet(int base,
                                                    String[] trainingData) {
         char[] generatedAlphabet = null;
+        
+        int totalCount = 0;
+        
+        if (base < 0 ){
+            return null;
+        }else {
+            
+            // Break training data into words
+            for (String words : trainingData){
+            
+                //Break into letters/characters
+                char[] letters = words.toCharArray();
+                
+                
+                for (char letter : letters) {
+                  totalCount = totalCount +1;
+                  System.out.println(letter + "," + totalCount);
+                    
+                }
+                
+
+        
+            }
+            
+        }
         
         
         return generatedAlphabet;

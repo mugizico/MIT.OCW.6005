@@ -18,7 +18,7 @@ public class DigitsToStringConverter {
      */
     public static String convertDigitsToString(int[] digits, int base,
                                                char[] alphabet) {
-       String output = ""; 
+       String ConvertedDigetsOutput = ""; 
         
        if (alphabet.length != base) {
            return null;
@@ -28,11 +28,11 @@ public class DigitsToStringConverter {
                return null;
              }
              else{
-               output = output + alphabet[i];
+               ConvertedDigetsOutput = ConvertedDigetsOutput + alphabet[i];
              }
            }
              
-       return output;           
+       return ConvertedDigetsOutput;           
        }
 
     }
