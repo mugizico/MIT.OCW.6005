@@ -1,5 +1,7 @@
 package PS1;
 
+import java.util.*;
+
 public class AlphabetGenerator {
     /**
      * Given a numeric base, return a char[] that maps every digit that is
@@ -52,8 +54,8 @@ public class AlphabetGenerator {
     public static char[] generateFrequencyAlphabet(int base,
                                                    String[] trainingData) {
         char[] generatedAlphabet = null;
-        
         int totalCount = 0;
+        Map<Character, Integer> count = new TreeMap<Character, Integer>();
         
         if (base < 0 ){
             return null;
@@ -65,12 +67,17 @@ public class AlphabetGenerator {
                 //Break into letters/characters
                 char[] letters = words.toCharArray();
                 
-                
                 for (char letter : letters) {
                   totalCount = totalCount +1;
                   System.out.println(letter + "," + totalCount);
-                    
+         
+                  Integer freqB = count.get(letter);
+                  count.put(letter, (freqB == null) ? 1 : freqB +1);
+                  
+                  
                 }
+               System.out.println(count.size() + " distinct letters");
+               System.out.println(count);
                 
 
         
