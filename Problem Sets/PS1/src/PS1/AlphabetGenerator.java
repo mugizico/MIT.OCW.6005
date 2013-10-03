@@ -12,8 +12,8 @@ public class AlphabetGenerator {
      *   1. Count the occurrence of each character a-z in trainingData.
      *   2. Compute the probability of each character a-z by taking
      *      (occurrence / total_num_characters).
-     *   3. The output generated in step (2) is a PDF of the characters in the
-     *      training set. Convert this PDF into a CDF for each character.
+     *   3. The output generated in step (2) is a Probability Density Function of the characters in the
+     *      training set. Convert this PDF into a Cumulative Distribution Function for each character.
      *   4. Multiply the CDF value of each character by the base we are
      *      converting into.
      *   5. For each index 0 <= i < base,
@@ -23,8 +23,7 @@ public class AlphabetGenerator {
      *   0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500 "b"s),
      *               "ccccc..." (198 "c"s)}, base = 93
      *   1. Count(a) = 302, Count(b) = 500, Count(c) = 193
-     *   2. Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 = .5,
-     *      Pr(c) = 198 / 1000 = .198
+     *   2. Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 = .5,  Pr(c) = 198 / 1000 = .198
      *   3. CDF(a) = .302, CDF(b) = .802, CDF(c) = 1
      *   4. CDF(a) * base = 28.086, CDF(b) * base = 74.586, CDF(c) * base = 93
      *   5. Output = {"a", "a", ... (28 As, indexes 0-27),
