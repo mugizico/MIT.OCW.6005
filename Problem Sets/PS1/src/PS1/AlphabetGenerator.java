@@ -54,7 +54,7 @@ public class AlphabetGenerator {
     public static char[] generateFrequencyAlphabet(int base,
                                                    String[] trainingData) {
         char[] generatedAlphabet = null;
-        //int totalCount = 0;
+        int totalCount = 0;
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
         Double[] CDF = null;
         
@@ -68,7 +68,7 @@ public class AlphabetGenerator {
                 //Break into letters/characters
                 char[] letters = words.toCharArray();
                 
-                for (char letter : letters) {
+                 for (char letter : letters) {
          
                   Integer frequency = count.get(letter);
                   count.put(letter, (frequency == null) ? 1 : frequency +1);
@@ -78,11 +78,29 @@ public class AlphabetGenerator {
         
             }
   
-            System.out.println(count.size() + " distinct letters");
+            //System.out.println(count.size() + " distinct letters");
             
-            System.out.println(count.values());
+            //System.out.println(count.values());
+            
+            // Trying the array approach
             CDF = new Double[count.size()]; 
-            //CDF = count.values().toArray();
+            totalCount = count.size();
+            int i = 0;
+            // getting all the values out of the map
+            //for (Integer value : count.values()){
+            //    CDF = (double) value /  (double) totalCount;
+            //}
+            
+            Iterator<Integer> itr = count.values().iterator();
+            while (itr.hasNext()){
+                //System.out.println();
+              CDF[i] = (double) itr.next() / (double) totalCount;
+              System.out.println(CDF[i]);
+              i++;
+            }
+            
+            System.out.println(CDF.length);
+            
             
             
         }
