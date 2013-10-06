@@ -62,12 +62,11 @@ public class AlphabetGenerator {
      * digit should be translated into.
      */
     public static char[] generateFrequencyAlphabet(int base, String[] trainingData) {
-        char[] generatedAlphabet = null;
+      char[] generatedAlphabet = null;
         int totalCount = 0;
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
         Double[] PDF = null;
         Double[] CDF = null;
-        //String[] letters = null;
         
         if (base < 0) {
             return null;
@@ -175,19 +174,3 @@ public class AlphabetGenerator {
         return generatedAlphabet;
     }
 }
-
-/**
-
-
-//System.out.println(count.size() + " distinct letters");  // But not distinct letters
-//System.out.println(count.values());
-
-        
-
-        //for (Character rune : runes){
-        //System.out.println("Found keys " + rune);           
-        //}
-
-
-*/
-

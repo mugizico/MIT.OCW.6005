@@ -26,24 +26,18 @@ public class DigitsToStringConverter {
 
         if (alphabet.length != base) {
             return null;
-        } 
-        
-        if (digits.length != alphabet.length){
-            return null;
         }
-        
-            for (int i = 0; i < base; i++) {
-                if (digits[i] < 0 || digits[i] >=base ) {
-                    return null;
-                } else {
-                    ConvertedDigetsOutput = ConvertedDigetsOutput + alphabet[i];
-                }
+
+        // loop through the random digits input, can be any length
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] < 0 || digits[i] >= base) {
+                return null;
+            } else {
+                // for the current digit, look up it's index in alphabet, and return the output
+                ConvertedDigetsOutput = ConvertedDigetsOutput + alphabet[digits[i]];
             }
+        }
 
-            return ConvertedDigetsOutput;
-        
-
-        
-        
+        return ConvertedDigetsOutput;
     }
 }

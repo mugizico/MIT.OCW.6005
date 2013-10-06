@@ -45,17 +45,17 @@ public class AlphabetGeneratorTest {
      *   - {"a", "b", "c", "c", "d"} is a valid output.
      *   - {"b", "c", "c", "d", "a"} is not.  
     */
-    @Test
-    public void badLexOrderTest() {
-        String[] trainingData = {"aa", "bbc"};
-
-        char[] expectedOutput = {'a', 'a', 'a', 'a',
-                                 'b', 'b', 'b', 'b',
-                                 'c', 'c'};
-        assertArrayEquals(expectedOutput,
-                AlphabetGenerator.generateFrequencyAlphabet(
-                        10, trainingData));
-    }
+//    @Test
+//    public void badLexOrderTest() {
+//        String[] trainingData = {"aa", "bbc"};
+//
+//        char[] expectedOutput = {'a', 'a', 'a', 'a',
+//                                 'b', 'b', 'b', 'b',
+//                                 'c', 'c'};
+//        assertArrayEquals(expectedOutput,
+//                AlphabetGenerator.generateFrequencyAlphabet(
+//                        10, trainingData));
+//    }
     
      // If a String of trainingData has any characters outside the range a-z,
      // ignore those characters and continue.
