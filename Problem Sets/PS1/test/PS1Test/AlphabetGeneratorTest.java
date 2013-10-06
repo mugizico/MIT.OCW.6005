@@ -20,45 +20,45 @@ public class AlphabetGeneratorTest {
                         10, trainingData));
     }
     
-//    @Test
-//    public void badBaseTest() {
-//        String[] trainingData = {"aa", "bbc"};
-//        char[] expectedOutput = {'a', 'a', 'a', 'a',
-//                                 'b', 'b', 'b', 'b',
-//                                 'c', 'c'};
-//    
-//        // if base < 0, return null
-//        int base = -1;
-//        assertNull(AlphabetGenerator.generateFrequencyAlphabet(base, trainingData));
-// 
+    @Test
+    public void badBaseTest() {
+        String[] trainingData = {"aa", "bbc"};
+        char[] expectedOutput = {'a', 'a', 'a', 'a',
+                                 'b', 'b', 'b', 'b',
+                                 'c', 'c'};
+    
+        // if base < 0, return null
+        int base = -1;
+        assertNull(AlphabetGenerator.generateFrequencyAlphabet(base, trainingData));
+ 
 //        //  If base >= 0, the returned array should have length equal to the size of the base.
 //        base = 10;
 //        assertEquals(expectedOutput.length,
 //          AlphabetGenerator.generateFrequencyAlphabet(base, trainingData));
-//     }
-//
-//   
-//   // TODO: Finish this section
-//    
-//   /** The letters should occur in lexicographically ascending order in the
-//     * returned array.
-//     *   - {"a", "b", "c", "c", "d"} is a valid output.
-//     *   - {"b", "c", "c", "d", "a"} is not.  
-//    */
-//    @Test
-//    public void badLexOrderTest() {
-//        String[] trainingData = {"aa", "bbc"};
-//
-//        char[] expectedOutput = {'a', 'a', 'a', 'a',
-//                                 'b', 'b', 'b', 'b',
-//                                 'c', 'c'};
-//        assertArrayEquals(expectedOutput,
-//                AlphabetGenerator.generateFrequencyAlphabet(
-//                        10, trainingData));
-//    }
-//    
-//     // If a String of trainingData has any characters outside the range a-z,
-//     // ignore those characters and continue.
+     }
+
+   
+   // TODO: Finish this section
+    
+   /** The letters should occur in lexicographically ascending order in the
+     * returned array.
+     *   - {"a", "b", "c", "c", "d"} is a valid output.
+     *   - {"b", "c", "c", "d", "a"} is not.  
+    */
+    @Test
+    public void badLexOrderTest() {
+        String[] trainingData = {"aa", "bbc"};
+
+        char[] expectedOutput = {'a', 'a', 'a', 'a',
+                                 'b', 'b', 'b', 'b',
+                                 'c', 'c'};
+        assertArrayEquals(expectedOutput,
+                AlphabetGenerator.generateFrequencyAlphabet(
+                        10, trainingData));
+    }
+    
+     // If a String of trainingData has any characters outside the range a-z,
+     // ignore those characters and continue.
     
     
 

@@ -124,15 +124,15 @@ public class AlphabetGenerator {
         }
         
         
-         // Display all the PDF+CDF's
-        for (Double PDFValues : PDF){
-            System.out.println("PDF: " + PDFValues);
-        }
-        
-        for (Double CDFValues : CDF){
-            System.out.println("CDF: " + CDFValues);
-        }
-        
+//         // Display all the PDF+CDF's
+//        for (Double PDFValues : PDF){
+//            System.out.println("PDF: " + PDFValues);
+//        }
+//        
+//        for (Double CDFValues : CDF){
+//            System.out.println("CDF: " + CDFValues);
+//        }
+//        
         
         
         // Generate the alphabet
@@ -145,21 +145,27 @@ public class AlphabetGenerator {
         // Multiply the CDF Value * base and create the alphabet
   
         // for all the letters output
-        for (int k = 0; k < base ; k++){
+        int prevLimit = 0;
+        for (int k = 0; k < count.size() ; k++){
             
             
             // calcuate how many of each letter to create
-            // use that as the loop value
-            double limit = (CDF[k] * base);
+            // as the array stop value (minus 1 for 0 based counting)
+           
+            double limit = (CDF[k] * base) -1;
             
-            System.out.println("limit " + limit );
+           // System.out.println("prev-limit " + prevLimit );
+           // System.out.println("limit " + limit );
             
-            //int limit = Math.   (  CDF[k] * base) -1;
+            // creates the characters
+            for (int m = prevLimit; m <= limit; m++){
+             //  System.out.println(runes[k]);     
+               
+               generatedAlphabet[m] = runes[k]; 
             
-            
-            for (int m = 0; m < limit; m++){
-                  
             }
+            
+            prevLimit = (int) limit +1;
             
         }
         
