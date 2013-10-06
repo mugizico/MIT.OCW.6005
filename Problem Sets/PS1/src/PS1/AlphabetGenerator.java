@@ -11,20 +11,25 @@ public class AlphabetGenerator {
      * This method will try to weight each character of the alphabet
      * proportional to their occurrence in words in a training set.
      *
-     * This method should do the following to generate an alphabet: 1. Count the
-     * occurrence of each character a-z in trainingData. 2. Compute the
-     * probability of each character a-z by taking (occurrence /
-     * total_num_characters). 3. The output generated in step (2) is a
-     * Probability Density Function of the characters in the training set.
-     * Convert this PDF into a Cumulative Distribution Function for each
-     * character. 4. Multiply the CDF value of each character by the base we are
-     * converting into. 5. For each index 0 <= i < base, output[i] = (the first
-     * character whose CDF * base is > i)
+     * This method should do the following to generate an alphabet: 
+     * 1. Count the occurrence of each character a-z in trainingData. 
+     * 2. Compute the probability of each character a-z by taking 
+     *    (occurrence / total_num_characters). 
+     * 3. The output generated in step (2) is a Probability Density Function of 
+     *    the characters in the training set.  Convert this PDF into a 
+     *    Cumulative Distribution Function for each character. 
+     * 4. Multiply the CDF value of each character by the base we are
+     *    converting into. 
+     * 5. For each index 0 <= i < base, output[i] = (the first
+     *    character whose CDF * base is > i)
      *
-     * A concrete example: 0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500
-     * "b"s), "ccccc..." (198 "c"s)}, base = 93 1. Count(a) = 302, Count(b) =
-     * 500, Count(c) = 193 2. Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 =
-     * .5, Pr(c) = 198 / 1000 = .198 3. CDF(a) = .302, CDF(b) = .802, CDF(c) = 1
+     * A concrete example: 
+     * 0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500"b"s), 
+     *             "ccccc..." (198 "c"s)}, base = 93 
+     * 1. Count(a) = 302, Count(b) = 500, Count(c) = 193 2. 
+     *               Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 =
+     * .5, Pr(c) = 198 / 1000 = .198 
+     * 3. CDF(a) = .302, CDF(b) = .802, CDF(c) = 1
      * 4. CDF(a) * base = 28.086, CDF(b) * base = 74.586, CDF(c) * base = 93 5.
      * Output = {"a", "a", ... (28 As, indexes 0-27), "b", "b", ... (47 Bs,
      * indexes 28-74), "c", "c", ... (18 Cs, indexes 75-92)}
@@ -47,8 +52,7 @@ public class AlphabetGenerator {
      * @return A char[] that maps every digit of the base to a char that the
      * digit should be translated into.
      */
-    public static char[] generateFrequencyAlphabet(int base,
-            String[] trainingData) {
+    public static char[] generateFrequencyAlphabet(int base, String[] trainingData) {
         char[] generatedAlphabet = null;
         int totalCount = 0;
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
@@ -76,23 +80,36 @@ public class AlphabetGenerator {
 
         }
 
+        //TODO: Remove this when finished
         //System.out.println(count.size() + " distinct letters");
         //System.out.println(count.values());
 
-        // Trying the array approach
+        // Calculate PDF using an array
         PDF = new Double[count.size()];
         totalCount = count.size();
         int i = 0;
 
         Iterator<Integer> itr = count.values().iterator();
         while (itr.hasNext()) {
-            PDF[i] = (double) itr.next() / (double) totalCount;
-            System.out.println(PDF[i]);
+            PDF[i] = itr.next() / (double) totalCount;
             i++;
         }
 
-        System.out.println(PDF.length);
-
+        
+       
+        
+        // We're getting the expected results for the PDF Values in test
+        // Now how to convert PDF->CDF?
+        for (Double value : PDF){
+            System.out.println(value);
+        }
+        
+        
+        // Convert PDF to CDF
+        
+        
+        
+        
 
         return generatedAlphabet;
     }
