@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.Test;
 
 public class WordFinderTest {
+
     @Test
     public void basicGetSubstringsTest() {
         String haystack = "abcde";
@@ -20,11 +21,11 @@ public class WordFinderTest {
         expectedOutput.put("de", 3);
 
         assertEquals(expectedOutput, WordFinder.getSubstrings(haystack,
-                                                              needles));
+                needles));
     }
 
-     @Test
-     public void multiMapTest() {
+    @Test
+    public void multiMapTest() {
         String haystack = "abcabc";
         String[] needles = {"ab", "abc", "b", "cab", "de"};
 
@@ -35,9 +36,6 @@ public class WordFinderTest {
         expectedOutput.put("cab", 2);
 
         assertEquals(expectedOutput, WordFinder.getSubstrings(haystack,
-                                                              needles));
+                needles));
     }
-
-    
-    
 }

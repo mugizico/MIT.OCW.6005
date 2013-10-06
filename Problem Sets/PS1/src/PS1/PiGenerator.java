@@ -2,7 +2,7 @@ package PS1;
 
 public class PiGenerator {
 
-   /**
+    /**
      * Returns precision hexadecimal digits of the fractional part of pi.
      * Returns digits in most significant to least significant order.
      *
