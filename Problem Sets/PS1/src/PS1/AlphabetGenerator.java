@@ -57,9 +57,15 @@ public class AlphabetGenerator {
         int totalCount = 0;
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
         Double[] PDF = null;
-
+        Double[] CDF = null;
+        
         if (base < 0) {
             return null;
+        }
+        
+        if (base == 0){
+            char[] emptyAlphabet = {};
+            return emptyAlphabet;
         }
 
         // Break training data into words
@@ -76,21 +82,23 @@ public class AlphabetGenerator {
 
                 Integer frequency = count.get(letter);
                 count.put(letter, (frequency == null) ? 1 : frequency + 1);
+                totalCount++;
             }
 
         }
 
         //TODO: Remove this when finished
-        //System.out.println(count.size() + " distinct letters");
+        //System.out.println(count.size() + " distinct letters");  // But not distinct letters
         //System.out.println(count.values());
 
         // Calculate PDF using an array
         PDF = new Double[count.size()];
-        totalCount = count.size();
         int i = 0;
 
+        
         Iterator<Integer> itr = count.values().iterator();
         while (itr.hasNext()) {
+            
             PDF[i] = itr.next() / (double) totalCount;
             i++;
         }
@@ -100,15 +108,33 @@ public class AlphabetGenerator {
         
         // We're getting the expected results for the PDF Values in test
         // Now how to convert PDF->CDF?
-        for (Double value : PDF){
-            System.out.println(value);
+        for (Double PDFValues : PDF){
+            System.out.println(PDFValues);
         }
         
         
         // Convert PDF to CDF
+        double prior = 0.00;
+        CDF = new Double[count.size()];
         
+        for (int j = 0 ; j <PDF.length; j++){
+            CDF[j] = prior + PDF[j];
+            prior = CDF[j];
+        }
         
+        // Display all the PDF+CDF's
+        for (Double PDFValues : PDF){
+            System.out.println("PDF: " + PDFValues);
+        }
         
+        for (Double CDFValues : CDF){
+            System.out.println("CDF: " + CDFValues);
+        }
+        
+        // Generate the alphabet
+        // Multiply the CDF Value * base and create the alphabet
+        
+       
         
 
         return generatedAlphabet;
