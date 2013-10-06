@@ -96,19 +96,17 @@ public class AlphabetGenerator {
 
         }
 
-        
-        
 
         // Calculate PDF using an array
         PDF = new Double[count.size()];
         int i = 0;
 
         Iterator<Integer> itr = count.values().iterator();
-        while (itr.hasNext()) {     
+        while (itr.hasNext()) {
             PDF[i] = itr.next() / (double) totalCount;
             i++;
         }
-        
+
         // Convert PDF to CDF
         // set prior = 0
         // Loop through the array of PDF:
@@ -116,60 +114,39 @@ public class AlphabetGenerator {
         //   prior = CDF[i]
         double prior = 0.00;
         CDF = new Double[count.size()];
-        
-        for (int j = 0 ; j <PDF.length; j++){
+
+        for (int j = 0; j < PDF.length; j++) {
             CDF[j] = prior + PDF[j];
             prior = CDF[j];
         }
-        
-        
-//         // Display all the PDF+CDF's
-//        for (Double PDFValues : PDF){
-//            System.out.println("PDF: " + PDFValues);
-//        }
-//        
-//        for (Double CDFValues : CDF){
-//            System.out.println("CDF: " + CDFValues);
-//        }
-//        
-        
-        
+
         // Generate the alphabet
         //get keys from Map (they are the letters)
         Character[] runes = count.keySet().toArray(new Character[0]);
-        
+
         // Size the output appropriately
         generatedAlphabet = new char[base];
-        
+
         // Multiply the CDF Value * base and create the alphabet
-  
+
         // for all the letters output
         int prevLimit = 0;
-        for (int k = 0; k < count.size() ; k++){
-            
-            
+        for (int k = 0; k < count.size(); k++) {
+
+
             // calcuate how many of each letter to create
             // as the array stop value (minus 1 for 0 based counting)
-           
-            double limit = (CDF[k] * base) -1;
-            
-           // System.out.println("prev-limit " + prevLimit );
-           // System.out.println("limit " + limit );
-            
+
+            double limit = (CDF[k] * base) - 1;
+
             // creates the characters
-            for (int m = prevLimit; m <= limit; m++){
-             //  System.out.println(runes[k]);     
-               
-               generatedAlphabet[m] = runes[k]; 
-            
+            for (int m = prevLimit; m <= limit; m++) {
+                generatedAlphabet[m] = runes[k];
             }
-            
-            prevLimit = (int) limit +1;
-            
+
+            prevLimit = (int) limit + 1;
+
         }
-        
-        
-        
 
         return generatedAlphabet;
     }

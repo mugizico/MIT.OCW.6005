@@ -13,6 +13,9 @@ build.xml
 *.ear
 *.txt
 *.abc
+*.iml
+*.idea
+*.swp
 
 # Directories #
 Z_Course Files - fall 2011/

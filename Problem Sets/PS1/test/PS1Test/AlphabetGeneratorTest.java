@@ -20,6 +20,7 @@ public class AlphabetGeneratorTest {
                         10, trainingData));
     }
     
+    
     @Test
     public void badBaseTest() {
         String[] trainingData = {"aa", "bbc"};
@@ -31,11 +32,7 @@ public class AlphabetGeneratorTest {
         int base = -1;
         assertNull(AlphabetGenerator.generateFrequencyAlphabet(base, trainingData));
  
-//        //  If base >= 0, the returned array should have length equal to the size of the base.
-//        base = 10;
-//        assertEquals(expectedOutput.length,
-//          AlphabetGenerator.generateFrequencyAlphabet(base, trainingData));
-     }
+    }
 
    
    // TODO: Finish this section
@@ -59,7 +56,4 @@ public class AlphabetGeneratorTest {
     
      // If a String of trainingData has any characters outside the range a-z,
      // ignore those characters and continue.
-    
-    
-
 }
