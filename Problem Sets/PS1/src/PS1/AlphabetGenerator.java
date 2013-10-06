@@ -24,19 +24,28 @@ public class AlphabetGenerator {
      *    character whose CDF * base is > i)
      *
      * A concrete example: 
-     * 0. Input = {"aaaaa..." (302 "a"s), "bbbbb..." (500"b"s), 
-     *             "ccccc..." (198 "c"s)}, base = 93 
-     * 1. Count(a) = 302, Count(b) = 500, Count(c) = 193 2. 
-     *               Pr(a) = 302 / 1000 = .302, Pr(b) = 500 / 1000 =
-     * .5, Pr(c) = 198 / 1000 = .198 
-     * 3. CDF(a) = .302, CDF(b) = .802, CDF(c) = 1
-     * 4. CDF(a) * base = 28.086, CDF(b) * base = 74.586, CDF(c) * base = 93 5.
-     * Output = {"a", "a", ... (28 As, indexes 0-27), "b", "b", ... (47 Bs,
-     * indexes 28-74), "c", "c", ... (18 Cs, indexes 75-92)}
+     * 0. Input = {"aaaaa..." (302 "a"s), 
+     *             "bbbbb..." (500"b"s), 
+     *             "ccccc..." (198 "c"s)},
+     *             base = 93 
+     * 1. Count    (a) = 302, Count(b) = 500, Count(c) = 193 
+     * 2. Pr(a) = 302 / 1000 = .302, 
+     *    Pr(b) = 500 / 1000 =.5, 
+     *    Pr(c) = 198 / 1000 = .198 
+     * 3. CDF(a) = .302, 
+     *    CDF(b) = .802, 
+     *    CDF(c) = 1
+     * 4. CDF(a) * base = 28.086, 
+     *    CDF(b) * base = 74.586, 
+     *    CDF(c) * base = 93 
+     * 5. Output = {"a", "a", ... (28 As, indexes 0-27),
+     *              "b", "b", ... (47 Bs, indexes 28-74),
+     *              "c", "c", ... (18 Cs, indexes 75-92)}
      *
      * The letters should occur in lexicographically ascending order in the
-     * returned array. - {"a", "b", "c", "c", "d"} is a valid output. - {"b",
-     * "c", "c", "d", "a"} is not.
+     * returned array. 
+     *          - {"a", "b", "c", "c", "d"} is a valid output. 
+     *          - {"b", "c", "c", "d", "a"} is not.
      *
      * If base >= 0, the returned array should have length equal to the size of
      * the base.
@@ -58,6 +67,7 @@ public class AlphabetGenerator {
         Map<Character, Integer> count = new TreeMap<Character, Integer>();
         Double[] PDF = null;
         Double[] CDF = null;
+        //String[] letters = null;
         
         if (base < 0) {
             return null;
@@ -87,33 +97,24 @@ public class AlphabetGenerator {
 
         }
 
-        //TODO: Remove this when finished
-        //System.out.println(count.size() + " distinct letters");  // But not distinct letters
-        //System.out.println(count.values());
+        
+        
 
         // Calculate PDF using an array
         PDF = new Double[count.size()];
         int i = 0;
 
-        
         Iterator<Integer> itr = count.values().iterator();
-        while (itr.hasNext()) {
-            
+        while (itr.hasNext()) {     
             PDF[i] = itr.next() / (double) totalCount;
             i++;
         }
-
-        
-       
-        
-        // We're getting the expected results for the PDF Values in test
-        // Now how to convert PDF->CDF?
-        for (Double PDFValues : PDF){
-            System.out.println(PDFValues);
-        }
-        
         
         // Convert PDF to CDF
+        // set prior = 0
+        // Loop through the array of PDF:
+        //   CDF[i] = prior + PDF[i]
+        //   prior = CDF[i]
         double prior = 0.00;
         CDF = new Double[count.size()];
         
@@ -122,7 +123,8 @@ public class AlphabetGenerator {
             prior = CDF[j];
         }
         
-        // Display all the PDF+CDF's
+        
+         // Display all the PDF+CDF's
         for (Double PDFValues : PDF){
             System.out.println("PDF: " + PDFValues);
         }
@@ -131,12 +133,55 @@ public class AlphabetGenerator {
             System.out.println("CDF: " + CDFValues);
         }
         
-        // Generate the alphabet
-        // Multiply the CDF Value * base and create the alphabet
         
-       
+        
+        // Generate the alphabet
+        //get keys from Map (they are the letters)
+        Character[] runes = count.keySet().toArray(new Character[0]);
+        
+        // Size the output appropriately
+        generatedAlphabet = new char[base];
+        
+        // Multiply the CDF Value * base and create the alphabet
+  
+        // for all the letters output
+        for (int k = 0; k < base ; k++){
+            
+            
+            // calcuate how many of each letter to create
+            // use that as the loop value
+            double limit = (CDF[k] * base);
+            
+            System.out.println("limit " + limit );
+            
+            //int limit = Math.   (  CDF[k] * base) -1;
+            
+            
+            for (int m = 0; m < limit; m++){
+                  
+            }
+            
+        }
+        
+        
         
 
         return generatedAlphabet;
     }
 }
+
+/**
+
+
+//System.out.println(count.size() + " distinct letters");  // But not distinct letters
+//System.out.println(count.values());
+
+        
+
+        //for (Character rune : runes){
+        //System.out.println("Found keys " + rune);           
+        //}
+
+
+*/
+
