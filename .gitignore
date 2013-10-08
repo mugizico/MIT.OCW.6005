@@ -16,6 +16,7 @@ build.xml
 *.iml
 *.idea
 *.swp
+*.DS_Store
 
 # Directories #
 Z_Course Files - fall 2011/
@@ -23,3 +24,4 @@ old*
 /Problem Sets/PS1/PS1/nbproject/private/
 /Problem Sets/PS/nbproject/private/
 /Problem Sets/JavaProject/nbproject/private/
+/Problem Sets/PS2/PS2/nbproject/private/
